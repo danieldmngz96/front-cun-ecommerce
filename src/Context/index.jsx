@@ -36,12 +36,13 @@ export const ShoppingCartProvider = ({children}) => {
   const [searchByCategory, setSearchByCategory] = useState(null)
 
   useEffect(() => {
-    fetch('https://http://127.0.0.1:8000/api/v1/products')
+    fetch('http://127.0.0.1:8000/api/v1/products')
       .then(response => response.json())
       .then(data => setItems(data))
   }, [])
 
   const filteredItemsByTitle = (items, searchByTitle) => {
+    console.log(items)
     return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
   }
 
